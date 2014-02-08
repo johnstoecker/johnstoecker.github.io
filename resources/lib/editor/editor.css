@@ -1,0 +1,82 @@
+#editorArea .x-inner .x-innerhtml {
+    height: 100%;
+}
+
+
+#editorDiv { 
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    overflow-y:scroll;
+    outline: none;
+}
+
+
+#editorArea-frame { 
+	width: 100%; 
+    display: inline-block;
+}
+
+#editorArea-frame .frame img {
+    height: 60px;
+}
+
+#editorArea-frame .bar { 
+	padding: 3px; 
+	border: grey 1px; 
+	border-style: solid solid none solid; 
+}
+
+/*.editor .frame { 
+	border: 1px solid; 
+	border-color: grey 
+}
+*/
+#editorArea-frame {  
+	height: 100%; 
+}
+
+#editorArea-frame .button { 
+	padding: 2px; 
+	border: grey 1px solid; 
+}
+
+//.editor .button-hover { 
+//	padding: 1px; 
+//	border: 1px solid; 
+//	border-color: #ffffff #ACA899 #ACA899 #ffffff; 
+//}
+
+#notification {
+    width: 100%;
+    position: absolute;
+    height: 5%;
+    bottom: 100px;
+    left:   15%;
+    z-index: 100;
+}
+
+.alert-box {
+    color:#555;
+    border-radius:10px;
+    font-family:Tahoma,Geneva,Arial,sans-serif;font-size:11px;
+    padding: 10px 36px;
+    position: absolute;
+    width: 70%;
+    opacity: 0.9;
+}
+
+.alert-box span {
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.error {
+    background:#ffecec url('../../images/editor/error.png') no-repeat 10px 50%;
+    border:1px solid #f5aca6;
+}
+
+.success {
+    background:#e9ffd9 url('../../images/editor/success.png') no-repeat 10px 50%;
+    border:1px solid #a6ca8a;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html manifest="" lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Push Up Game</title>
+        <style type="text/css">
+        html, body {
+            height: 100%;
+        }
+
+        #appLoadingIndicator {
+            position: absolute;
+            top: 30%;
+            left: 40%;
+            margin-left: -50px;
+            width: 240px;
+            height: 20px;
+        }
+
+        #appLoadingIndicator > div {
+            background-color: #FFFFFF;
+            float: left;
+            height: 20px;
+            margin-left: 18px;
+            margin-right: 18px;
+            width: 20px;
+            -webkit-animation-name: appLoadingIndicator;
+            -webkit-border-radius: 13px;
+            -webkit-animation-duration: .8s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: linear;
+            opacity: 0.3
+        }
+
+        #appLoadingIndicator > :nth-child(2) {
+            -webkit-animation-delay: .18s;
+            background-color: orange;
+        }
+
+        #appLoadingIndicator > :nth-child(3) {
+            -webkit-animation-delay: .42s;
+            background-color: blue;
+        }
+
+        #appLoadingIndicator > :nth-child(4) {
+            -webkit-animation-delay: .54s;
+            background-color: green;
+        }
+
+        #appLoadingIndicator > :nth-child(5) {
+            -webkit-animation-delay: .92s;
+            background-color: red;
+        }
+
+
+        @-webkit-keyframes appLoadingIndicator{
+            0% {
+                opacity: 0.3
+            }
+            50% {
+                opacity: 1;
+                background-color:#1985D0
+            }
+            100% {
+                opacity:0.3
+            }
+        }
+        </style>
+        <script type="text/javascript" src="scripts/util_opd.js"></script>
+        <script type="text/javascript" src="scripts/startup.js"></script>
+        <!-- // <script type="text/javascript" src="waterbug.js"></script> -->
+        <script type="text/javascript" src="resources/lib/jquery-min.js"></script>
+        <link rel="stylesheet" href="css/doctorPhone.css" type="text/css">
+        <link rel="stylesheet" href="resources/lib/editor/editor.css" type="text/css">
+
+        
+        <!-- // <script type="text/javascript" src="resources/lib/editor/editor_jquery.js"></script> -->
+
+        <!-- // <script id="microloader" type="text/javascript" src="../build/PushUpGame/native/myRaxa.app/webapp/app.js"></script> -->
+        <!-- <script type="text/javascript" src="../lib/touch-2.3.0/sencha-touch-all-debug.js"></script>
+        <script id="microloader" type="text/javascript" src="./app.js"></script>
+        -->
+        <script type="text/javascript">
+            //specify the build first, Development, Production, Native
+            var build="Development";
+            
+            _loadLib = function(libArray) {
+                //Sequence in which js files are executed is important while loading following js files, therefore async option is set to false.
+                $.ajaxSetup({async:false});
+
+                for(var lib=0; lib < libArray.length-1; lib++) {
+                    $.getScript(libArray[lib]);
+                }
+            
+                $.getScript(libArray[libArray.length-1], function(data, textStatus, jqxhr) {
+                    //Set ajax calls to be sync after all js files are loaded and initialized.
+                    $.ajaxSetup({async:true});
+                });
+            }
+            
+            //action on build version
+            var e;
+            if(build==="Development"){
+                console.log('Build: Development');
+                var libArray = new Array('touch-2.3.0/sencha-touch-all-debug.js','./app.js');
+
+            }else if(build==="Production"){
+                console.log('Build: Production');
+                var libArray = new Array('./../build/PushUpGame/production/app.js');
+            }else if(build==="Native"){
+                console.log('Build: Native');
+                var libArray = new Array('scripts/util_opd.js', 'scripts/startup.js','app.js','lib/lightbox/scripts/lightbox.js');
+                 //$.getScript("lib/lightbox/scripts/lightbox.js");
+            }
+            _loadLib(libArray);
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-39068121-1']);
+            _gaq.push(['_setDomainName', 'raxa.io']);
+            _gaq.push(['_setAllowLinker', true]);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        <script type="text/javascript" src="resources/lib/exif.js"></script>
+    </head>
+    <body>
+        <div id="fb-root"></div>
+        <script src="//connect.facebook.net/en_US/all.js"></script>
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '276268362529048',
+              status     : true,
+              xfbml      : true
+            });
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/all.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+            <div id="appLoadingIndicator">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div id="help-main-div">
+            <div id="help-main-div-fg"></div>
+            <div id="help-main-div-bg"></div>
+        </div>
+        <div id="notification"> </div>
+        <div id="notificationProgress"> </div>
+    </body>
+</html>

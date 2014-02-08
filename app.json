@@ -1,0 +1,159 @@
+{
+    /**
+     * The application's namespace, used by Sencha Command to generate classes
+     */
+    "name": "PushUpGame",
+
+    /**
+     * The file path to this application's front HTML document, relative to this app.json file
+     */
+    "indexHtmlPath": "index.html",
+
+    /**
+     * The absolute URL to this application in development environment, i.e: the URL to run this application
+     * on your web browser during development, e.g: "http://localhost/myapp/index.html".
+     *
+     * This value is needed when build to resolve your application's dependencies if it requires server-side resources
+     * that are not accessible via file system protocol.
+     */
+    "url": null,
+
+    /**
+     * List of all JavaScript assets in the right execution order.
+     * Each item is an object with the following format:
+     *      {
+     *          "path": "path/to/script.js" // Path to file, if local file it must be relative to this app.json file
+     *          "remote": true              // (Optional)
+     *                                      // - Defaults to undefined (falsey) to signal a local file which will be copied
+     *                                      // - Specify true if this file is a remote file which will not to be copied
+     *          "update": "delta"           // (Optional)
+     *                                      //  - If not specified, this file will only be loaded once, and
+     *                                      //    cached inside localStorage until this value is changed.
+     *                                      //  - "delta" to enable over-the-air delta update for this file
+     *                                      //  - "full" means full update will be made when this file changes
+     *
+     *      }
+     */
+    "js": [{
+        // Raxa utils
+        "path": "scripts/util_opd.js"
+    }, {
+        // Raxa utils, mostly focused on Startup / Session management
+        "path": "scripts/startup.js"
+    }, {
+        // Raxa utils, mostly focused on Startup / Session management
+        "path": "waterbug.js"
+    }, {
+        // sencha sdk
+        "path": "../lib/touch-2.3.0/sencha-touch.js"
+    }, {
+        // jquery lib
+        "path": "resources/lib/jquery-min.js"
+    }, {
+        "path": "app.js",
+        "bundle": true,
+        /* Indicates that all class dependencies are concatenated into this file when build */
+        "update": "delta"
+    },{
+        "path": "../lib/lightbox/scripts/lightbox.js"
+    }, {
+        // Kinetic JS, to create canvas (for drawing and display of history)
+        "path": "../outfriend/resources/lib/exif.js"
+    }],
+
+    /**
+     * List of all CSS assets in the right inclusion order.
+     * Each item is an object with the following format:
+     *      {
+     *          "path": "path/to/item.css" // Path to file, if local file it must be relative to this app.json file
+     *          "remote": true             // (Optional)
+     *                                     // - Defaults to undefined (falsey) to signal a local file which will be copied
+     *                                     // - Specify true if this file is a remote file which will not to be copied
+     *          "update": "delta"          // (Optional)
+     *                                     //  - If not specified, this file will only be loaded once, and
+     *                                     //    cached inside localStorage until this value is changed to either one below
+     *                                     //  - "delta" to enable over-the-air delta update for this file
+     *                                     //  - "full" means full update will be made when this file changes
+     *
+     *      }
+     */
+    "css": [{
+        "path": "css/doctorPhone.css",
+        "update": "delta"
+    },{
+        "path": "../lib/lightbox/css/lightbox.css"
+    },{
+        "path": "resources/lib/editor/editor.css"
+    }],
+
+    /**
+     * Used to automatically generate cache.manifest (HTML 5 application cache manifest) file when you build
+     */
+    "appCache": {
+        /**
+         * List of items in the CACHE MANIFEST section
+         */
+        "cache": [
+            "index.html"
+        ],
+        /**
+         * List of items in the NETWORK section
+         */
+        "network": [
+            "*"
+        ],
+        /**
+         * List of items in the FALLBACK section
+         */
+        "fallback": []
+    },
+
+    /**
+     * Extra resources to be copied along when build
+     */
+    "resources": [
+        "resources/images",
+        "resources/icons",
+        "data"
+    ],
+
+    /**
+     * File / directory name matchers to ignore when copying to the builds, must be valid regular expressions
+     */
+    "ignore": [
+        "\.svn$",
+        "\.git$"
+    ],
+
+    /**
+     * Directory path to store all previous production builds. Note that the content generated inside this directory
+     * must be kept intact for proper generation of deltas between updates
+     */
+    "archivePath": "archive",
+
+    /**
+     * Default paths to build this application to for each environment
+     */
+    "buildPaths": {
+        "testing": "build/testing",
+        "production": "build/production",
+        "package": "build/package",
+        "native": "build/native"
+    },
+
+    /**
+     * Build options
+     */
+    "buildOptions": {
+        "product": "touch",
+        "minVersion": 3,
+        "debug": false,
+        "logger": false
+    },
+
+    /**
+     * Uniquely generated id for this application, used as prefix for localStorage keys.
+     * Normally you should never change this value.
+     */
+    "id": "95e59485-3a72-4b7a-a460-9c39169fa8a3"
+}

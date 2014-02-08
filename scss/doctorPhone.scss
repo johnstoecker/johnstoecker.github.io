@@ -1,0 +1,206 @@
+$base-color: #2d5789;
+//2d5789
+$include-highlights: false;
+$base-gradient: matte;
+$button-radius: 0em;
+$button-stroke-weight : 0em;
+$sheet-bg-color : black;
+$list-bg-color: #ffffff;
+$list-active-color: #2d5789;
+$list-header-bg-color: #2c7cb9;
+$list-header-gradient: '';
+$toolbar-icon-size: 1.4em;
+
+@import 'sencha-touch/base';
+@import 'sencha-touch/base/all';
+@import 'sencha-touch/default';
+@import 'sencha-touch/default/all';
+
+// You may remove any of the following modules that you
+// do not use in order to create a smaller css file.
+
+
+@include sencha-button-ui('back', #ccc, 'flat');
+@include sencha-button-ui('history', #333, 'flat');
+@include sencha-button-ui('myRaxaFlat', $base-color, 'flat');
+@include sencha-button-ui('confirm', green, 'flat');
+@include sencha-button-ui('settings', $base-color, 'flat');
+@include sencha-button-ui('loginConfirm', #34d531, 'flat');
+@include sencha-button-ui('accountCreate', #f77503, 'flat');
+@include icon-font('DoctorPhoneFont', inline-font-files('DoctorPhoneFont.woff', woff, 'DoctorPhoneFont.ttf', truetype,'DoctorPhoneFont.svg', svg));
+
+//Generate icon's class
+@include icon('slideMenu','M','DoctorPhoneFont');
+@include icon('diagnosis','D','DoctorPhoneFont');
+@include icon('drug',     'P','DoctorPhoneFont');
+@include icon('visit',    'V','DoctorPhoneFont');
+@include icon('lab',      'L','DoctorPhoneFont');
+@include icon('back',     'B','DoctorPhoneFont');
+@include icon('text',     'T','DoctorPhoneFont');
+@include icon('camera',   'C','DoctorPhoneFont');
+
+//bug in sencha icon font generation shifts icons up by 10 pixels
+//unnecessary when icon fonts created properly
+// .x-button-myRaxaFlat .x-button-icon, .x-button-confirm .x-button-icon{
+//   bottom: -5px;
+//   margin-right: 5px
+// }
+
+// .x-button-settings .x-button-icon{
+//   bottom: 5px;
+//   margin-right: 15px;
+// }
+
+
+.visitsButtonLabel
+{
+  color:$base-color;
+}
+
+.x-button-loginConfirm{
+  height: 2.7em !important;
+  border-radius: 0em !important;
+  border-bottom: #cccccc .02em !important;
+}
+.x-button-accountCreate{
+  height: 2.7em !important;
+  border-radius: 0em !important;
+  border-bottom: #cccccc .02em !important;
+}
+
+.x-tab img.import, .x-button img.x-icon-mask.visit {
+    -webkit-mask-image: url('resources/images/icon/menu.png');
+}
+
+.x-button{
+  border: none !important;
+  color: white !important;
+  //sencha touch has z-index as '1' which automatically comes on top...
+  z-index: auto;
+}
+
+.x-list{
+    font-size: '1.5em';
+    img{
+        margin-right: 7px;
+    }
+}
+
+.x-list-normal .x-list-header{
+    color: #FFFFFF;
+}
+
+.raxa-login-form{
+    font-size: '1.5em';
+}
+
+.x-list-header{
+    color: #FFFFFF;
+}
+
+.x-toolbar {
+  border: none !important;
+  background: $base-color;
+  padding: 0;
+  .x-innerhtml {
+    color: white;
+//    font-size: 16px;
+  }
+  .x-button-cancel{
+  color: white;
+  }
+  .x-button{
+    background-image: '';
+    background-color: $base-color;
+  }
+  .x-button-confirm{
+      margin: 0em;
+      margin-right: 5px;
+      padding: 0;
+      .x-button-label{
+        font-size: 1em;
+        margin: 4px;
+      }
+  }
+}
+
+
+
+.x-tabbar {
+  border: none;
+  background: $base-color;
+  .x-tab {
+    background: none;
+    border: none;
+    .x-button-label {
+      color: white;
+      padding: 10px 15px;
+      text-align: center;
+      font-size: 13px
+    }
+    &.x-tab-active {
+      .x-button-label {
+        color: #02b99a;
+      }
+    }
+  }
+}
+
+
+//button in action sheet color
+
+.x-sheet-action-inner { 
+        .x-button {
+        color: #fff;
+        background: #333;
+        font-size: 1em;
+        font-weight: 10%;
+          }
+}
+
+.x-title .x-innerhtml:after {
+    content: '';
+    display: inline-block;
+    width: .3em; /* equal to the amount of padding on the element */
+}
+
+//to fix the problem of groups and mismatched titlebar on main menu slidebar
+.x-slidenavigation-list {
+   .x-scroll-scroller {
+   top: -8px;
+   font-size: 70%;
+   }
+}
+ 
+#sexRadioGroup {
+   .x-field-radio .x-field-mask {
+     right: 45%;
+   }
+   .x-field-checkbox .x-form-label, .x-field-radio .x-form-label{
+       background: #FFF;
+   }
+}
+
+//icon is wider for add friend
+#addfriendButton .x-button-icon {
+    width: 2.5em;
+}
+ 
+//To fix problem of ... (ellipsis) in title of top bar
+.x-title .x-innerhtml {
+     text-overflow: clip !important;
+     font-size: 80%;
+}
+
+image-upload > input
+{
+    display: none;
+}
+
+.backLabel
+{
+  font-size: 0.7em;
+  margin: 0 0 0 -5px;
+  line-height: 2em;
+  font-weight: bold;
+}

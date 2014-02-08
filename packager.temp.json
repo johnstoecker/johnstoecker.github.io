@@ -1,0 +1,25 @@
+{
+  "applicationName": "Doctor Phone",
+  "applicationId": "com.raxa.DoctorPhone",
+  "bundleSeedId": "85YL7Q6854",
+  "versionString": "1.0",
+  "versionCode": "1",
+  "icon": {
+    "57": "resources/icons/Icon-small.png",
+    "72": "resources/icons/Icon.png",
+    "114": "resources/icons/Icon~ipad.png",
+    "144": "resources/icons/Icon~ipad@2x.png"
+  },
+  "inputPath": "/Users/madanpiyush/Documents/projects/amrit/Raxa-private/src/build/PushUpGame/package",
+  "outputPath": "/Users/madanpiyush/Documents/projects/amrit/Raxa-private/src/build/PushUpGame/native",
+  "configuration": "Debug",
+  "platform": "iOS",
+  "deviceType": "Universal",
+  "certificatePath": "/Users/madanpiyush/Documents/certificatesDistribution/Certificates.p12",
+  "certificateAlias": "iPhone Developer",
+  "certificatePassword": "raxa",
+  "provisionProfile": "/Users/madanpiyush/Documents/certificatesDistribution/Raxa_Distribution.mobileprovision",
+  "orientations": [
+    "portrait"
+  ]
+}
